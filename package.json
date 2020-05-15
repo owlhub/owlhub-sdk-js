@@ -1,34 +1,80 @@
 {
   "name": "owlhub-sdk",
-  "version": "0.0.1",
   "description": "OWLHUB SDK for JavaScript",
-  "main": "lib/owlhub.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/technovendors/owlhub-sdk-js.git"
-  },
-  "keywords": [
-    "owlhub",
-    "owlverify"
-  ],
+  "version": "0.0.1",
   "author": {
     "name": "Owlhub",
     "email": "",
     "url": "https://owlhub.io/"
   },
-  "license": "Apache-2.0",
-  "bugs": {
-    "url": "https://github.com/technovendors/owlhub-sdk-js/issues"
-  },
   "homepage": "https://github.com/technovendors/owlhub-sdk-js",
   "contributors": [
     "Nitin Goyal <nitin@owlhub.io>"
   ],
+  "devDependencies": {
+    "@types/node": "^14.0.1",
+    "browserify": "^16.5.1",
+    "eslint": "^7.0.0",
+    "webpack": "^4.43.0"
+  },
+  "dependencies": {
+    "querystring": "^0.2.0",
+    "url": "^0.11.0",
+    "uuid": "^8.0.0"
+  },
+  "main": "lib/owlhub.js",
+  "browser": {
+    "lib/aws.js": "./lib/browser.js",
+    "fs": false,
+    "./global.js": "./browser.js",
+    "./lib/node_loader.js": "./lib/browser_loader.js"
+  },
+  "browserify": {
+    "transform": "./dist-tools/transform.js"
+  },
+  "directories": {
+    "lib": "lib"
+  },
+  "types": "index.d.ts",
+  "typings": "index.d.ts",
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/technovendors/owlhub-sdk-js.git"
+  },
   "bugs": {
     "url": "https://github.com/technovendors/owlhub-sdk-js/issues",
     "mail": ""
+  },
+  "license": "Apache-2.0",
+  "keywords": [
+    "owlhub",
+    "owlverify"
+  ],
+  "scripts": {
+    "test": "node ./scripts/composite-test.js",
+    "unit": "mocha -- $npm_package_config_test_args",
+    "coverage": "istanbul cover ./node_modules/mocha/bin/_mocha --reporter=lcovonly -- $npm_package_config_test_args",
+    "browsertest": "rake browser:test && karma start",
+    "buildertest": "mocha --require coffeescript/register -s 1000 -t 10000 dist-tools/test/*.coffee",
+    "integration": "cucumber.js",
+    "lint": "eslint lib test dist-tools/*.js",
+    "console": "./scripts/console",
+    "testfiles": "istanbul `[ $COVERAGE ] && echo 'cover _mocha' || echo 'test mocha'`",
+    "tstest": "npm -s run-script build-typings && tsc -p ./ts",
+    "build-typings": "node ./scripts/typings-generator.js",
+    "add-change": "node ./scripts/changelog/add-change.js",
+    "build-react-native-deps": "webpack --config dist-tools/webpack.config.rn-dep.js",
+    "build-react-native-core": "webpack --config dist-tools/webpack.config.rn-core.js",
+    "build-react-native-dist": "webpack --config dist-tools/webpack.config.rn.js",
+     "build-react-native": "npm -s run-script build-react-native-deps && npm -s run-script build-react-native-core && npm -s run-script build-react-native-dist",
+    "react-native-test": "npm -s run-script build-react-native && rake reactnative:test && karma start",
+    "region-check": "node ./scripts/region-checker/index.js",
+    "translate-api-test": "mocha scripts/lib/translate-api.spec.js",
+    "typings-generator-test": "mocha scripts/lib/prune-shapes.spec.js",
+    "helper-test": "mocha scripts/lib/test-helper.spec.js",
+    "csm-functional-test": "mocha test/publisher/functional_test"
   }
 }
