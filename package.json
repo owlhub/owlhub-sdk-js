@@ -18,6 +18,7 @@
     "webpack": "^4.43.0"
   },
   "dependencies": {
+    "buffer": "^5.6.0",
     "querystring": "^0.2.0",
     "url": "^0.11.0",
     "uuid": "^8.0.0"
@@ -69,7 +70,7 @@
     "build-react-native-deps": "webpack --config dist-tools/webpack.config.rn-dep.js",
     "build-react-native-core": "webpack --config dist-tools/webpack.config.rn-core.js",
     "build-react-native-dist": "webpack --config dist-tools/webpack.config.rn.js",
-     "build-react-native": "npm -s run-script build-react-native-deps && npm -s run-script build-react-native-core && npm -s run-script build-react-native-dist",
+    "build-react-native": "npm -s run-script build-react-native-deps && npm -s run-script build-react-native-core && npm -s run-script build-react-native-dist",
     "react-native-test": "npm -s run-script build-react-native && rake reactnative:test && karma start",
     "region-check": "node ./scripts/region-checker/index.js",
     "translate-api-test": "mocha scripts/lib/translate-api.spec.js",
