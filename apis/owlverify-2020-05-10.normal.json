@@ -1,0 +1,46 @@
+{
+  "version": "2.0",
+  "metadata": {
+    "apiVersion": "2020-05-10",
+    "endpointPrefix": "owlverify",
+    "jsonVersion": "1.1",
+    "protocol": "json",
+    "serviceAbbreviation": "OwlVerify",
+    "serviceFullName": "OwlVerify",
+    "serviceId": "OwlVerify",
+    "signatureVersion": "v4",
+    "targetPrefix": "",
+    "uid": "owlverify-2020-05-10"
+  },
+  "operations": {
+    "ValidateEmail": {
+      "name": "ValidateEmail",
+      "http": {
+        "method": "POST",
+        "requestUri": "/"
+      },
+      "input": {
+        "shape": "ValidateEmailRequest"
+      },
+      "output": {
+        "shape": "ValidateEmailResponse"
+      },
+      "errors": [
+        {
+          "shape": "LimitExceededException"
+        },
+        {
+          "shape": "InvalidParameterException"
+        }
+      ]
+    }
+  },
+  "shapes": {
+    "ValidateEmailRequest": {
+      "type": "structure",
+      "required": [
+        "Email"
+      ]
+    }
+  }
+}
