@@ -1,0 +1,9 @@
+{
+  "owlverify": {
+    "name": "OWLVerify",
+    "cors": true,
+    "versions": [
+      "2020-05-10*"
+    ]
+  }
+}

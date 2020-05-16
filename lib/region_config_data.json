@@ -1,0 +1,16 @@
+{
+  "rules": {
+    "*/*": {
+      "endpoint": "{service}.{region}.owlhub.io"
+    },
+    "*/budgets": "globalSSL",
+    "*/iam": "globalSSL",
+    "*/sts": "globalSSL"
+  },
+  "patterns": {
+    "globalSSL": {
+      "endpoint": "https://{service}.owlhub.io",
+      "globalEndpoint": true
+    }
+  }
+}
