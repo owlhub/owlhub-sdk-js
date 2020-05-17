@@ -5,5 +5,12 @@
     "versions": [
       "2020-05-10*"
     ]
+  },
+  "sts": {
+    "name": "STS",
+    "cors": true,
+    "versions": [
+      "2020-05-10*"
+    ]
   }
 }
