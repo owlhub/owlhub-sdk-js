@@ -22,7 +22,8 @@
     "jmespath": "^0.15.0",
     "querystring": "^0.2.0",
     "url": "^0.11.0",
-    "uuid": "^8.0.0"
+    "uuid": "^8.0.0",
+    "xml2js": "^0.4.23"
   },
   "main": "lib/owlhub.js",
   "browser": {
