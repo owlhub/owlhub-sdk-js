@@ -4,7 +4,7 @@ var path = require('path');
 
 var OWLHUB = require('../index');
 
-var licence = [
+var license  = [
   '// OWLHUB SDK for JavaScript v' + OWLHUB.VERSION,
   '// Copyright owlhub or its affiliates. All Rights Reserved.',
   '// License at https://sdk.owlhub.io/js/BUNDLE_LICENSE.txt'
@@ -31,10 +31,10 @@ function build(options, callback) {
   var brOpts = { basedir: path.resolve(__dirname, '..') };
   browserify(brOpts).add('./').ignore('domain').bundle(function(err, data) {
     if (err) return callback(err);
-                                                       
+
     var code = (data || '').toString();
     if (options.minify) code = minify(code);
-                                                       
+
     code = license + code;
     callback(null, code);
   });
@@ -46,7 +46,7 @@ if (require.main === module) {
     services: process.argv[2] || process.env.SERVICES,
     minify: process.env.MINIFY ? true : false
   };
-  
+
   build(opts, function(err, code) {
     if (err) console.error(err.message);
     else console.log(code);
