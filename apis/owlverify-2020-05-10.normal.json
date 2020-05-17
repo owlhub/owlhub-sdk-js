@@ -1,8 +1,9 @@
 {
-  "version": "2.0",
+  "version": "1.0",
   "metadata": {
     "apiVersion": "2020-05-10",
     "endpointPrefix": "owlverify",
+    "globalEndpoint": "owlverify.owlhub.io",
     "jsonVersion": "1.1",
     "protocol": "json",
     "serviceAbbreviation": "OwlVerify",
@@ -10,7 +11,8 @@
     "serviceId": "OwlVerify",
     "signatureVersion": "v4",
     "targetPrefix": "",
-    "uid": "owlverify-2020-05-10"
+    "uid": "owlverify-2020-05-10",
+    "xmlNamespace": "https://owlverify.owlhub.io/doc/2020-05-10/"
   },
   "operations": {
     "ValidateEmail": {
@@ -23,7 +25,8 @@
         "shape": "ValidateEmailRequest"
       },
       "output": {
-        "shape": "ValidateEmailResponse"
+        "shape": "ValidateEmailResponse",
+        "resultWrapper": "ValidateEmailResult"
       },
       "errors": [
         {
@@ -40,7 +43,27 @@
       "type": "structure",
       "required": [
         "Email"
-      ]
+      ],
+      "members": {
+        "Email": {
+          "shape": "email",
+          "documentation": ""
+        }
+      }
+    },
+    "ValidateEmailResponse": {
+      "type": "structure",
+      "members": {
+        "Email": {
+          "shape": "email",
+          "documentation": ""
+        }
+      }
+    },
+    "email": {
+      "type": "string",
+      "max": 200,
+      "min": 2
     }
   }
 }
