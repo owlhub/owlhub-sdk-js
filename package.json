@@ -1,7 +1,7 @@
 {
   "name": "owlhub-sdk",
   "description": "OWLHUB SDK for JavaScript",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": {
     "name": "Owlhub",
     "email": "",

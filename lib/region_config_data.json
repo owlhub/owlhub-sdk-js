@@ -3,9 +3,9 @@
     "*/*": {
       "endpoint": "{service}.{region}.owlhub.io"
     },
-    "*/budgets": "globalSSL",
     "*/iam": "globalSSL",
-    "*/sts": "globalSSL"
+    "*/sts": "globalSSL",
+    "*/owlverify": "globalSSL"
   },
   "patterns": {
     "globalSSL": {
