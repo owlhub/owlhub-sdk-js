@@ -10,6 +10,7 @@
     "serviceFullName": "OwlVerify",
     "serviceId": "OwlVerify",
     "signatureVersion": "v4",
+    "signingName": "execute-api",
     "targetPrefix": "",
     "uid": "owlverify-2020-05-10",
     "xmlNamespace": "https://owlverify.owlhub.io/doc/2020-05-10/"

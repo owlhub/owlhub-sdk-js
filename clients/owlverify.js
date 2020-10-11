@@ -1,5 +1,5 @@
-require('../lib/node_loader');
-var OWLHUB = require('../lib/core');
+require('aws-sdk/lib/node_loader');
+var OWLHUB = require('aws-sdk/lib/core');
 var Service = OWLHUB.Service;
 var apiLoader = OWLHUB.apiLoader;
 
