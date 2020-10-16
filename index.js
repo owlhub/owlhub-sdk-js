@@ -1,11 +1,14 @@
 var fs = require('fs')
 
 const regionConfigRules = require('aws-sdk/lib/region_config_data.json')
-regionConfigRules.rules['*/owlverify'] = {
-  'endpoint': '{service}.{region}.owlhub.io'
-}
 
-fs.writeFileSync(require.resolve('aws-sdk/lib/region_config_data.json'), JSON.stringify(regionConfigRules))
+if (!('*/owlverify' in regionConfigRules.rules)) {
+  regionConfigRules.rules['*/owlverify'] = {
+    'endpoint': '{service}.{region}.owlhub.io'
+  }
+
+  fs.writeFileSync(require.resolve('aws-sdk/lib/region_config_data.json'), JSON.stringify(regionConfigRules))
+}
 
 require('aws-sdk/lib/node_loader')
 
